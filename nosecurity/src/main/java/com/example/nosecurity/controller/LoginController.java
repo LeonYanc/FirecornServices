@@ -27,10 +27,7 @@ public class LoginController {
     public String loginsuccess() {
         return "login-success";
     }
-    @RequestMapping("/")
-    public String Main() {
-        return "main";
-    }
+
     @RequestMapping("/login")//http://localhost:8080/login
     public String login() {
         return "login";
