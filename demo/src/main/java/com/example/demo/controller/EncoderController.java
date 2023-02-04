@@ -17,15 +17,11 @@ public class EncoderController {
 
     @Autowired
     UrlRepo ob;
-
-
     public EncoderController(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
     String chars = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-
     int count = 1;
-
     public String getString() {
         int c = count;
         StringBuilder sb = new StringBuilder();
@@ -58,16 +54,9 @@ public class EncoderController {
            url=new Url(longUrl,address2);
             address=address2;
         }
-
-
-
         if(ob.findByLongurlIs(longUrl).isEmpty()){
             ob.save(url);
         }
-
         return address;
     }
-
-
-
 }
