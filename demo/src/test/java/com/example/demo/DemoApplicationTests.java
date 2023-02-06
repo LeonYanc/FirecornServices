@@ -1,10 +1,10 @@
-package com.example.nosecurity;
+package com.example.demo;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class NosecurityApplicationTests {
+class DemoApplicationTests {
 
     @Test
     void contextLoads() {

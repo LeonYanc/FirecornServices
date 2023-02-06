@@ -1,12 +1,10 @@
-package com.example.nosecurity.controller;
+package com.example.demo.controller;
 
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -29,27 +27,14 @@ public class LoginController {
     public String loginsuccess() {
         return "login-success";
     }
-    @RequestMapping("/")
-    public String Main() {
-        return "main";
-    }
+
     @RequestMapping("/login")//http://localhost:8080/login
     public String login() {
         return "login";
     }
-    @RequestMapping("/encode")
-    @ResponseBody
 
-    public String encode(String longUrl) {
-        map.put(longUrl.hashCode(), longUrl);
-        return "http://tinyurl.com/" + longUrl.hashCode();
 
-    }
-    @RequestMapping("/decode")
-    @ResponseBody
-    public String decode(String shortUrl) {
-        return (map.get(Integer.parseInt(shortUrl.replace("http://tinyurl.com/", ""))));
-    }
+
 
 
 

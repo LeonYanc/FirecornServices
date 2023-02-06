@@ -1,13 +1,13 @@
-package com.example.nosecurity;
+package com.example.demo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class NosecurityApplication {
+public class DemoApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(NosecurityApplication.class, args);
+        SpringApplication.run(DemoApplication.class, args);
     }
 
 }
