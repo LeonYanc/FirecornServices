@@ -1,52 +1,39 @@
+package com.example.demo.cache;
 
-import com.internProject.shortly.entity.Url;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
 
 import java.util.concurrent.TimeUnit;
 
 @Service
-public class RedisCacheServiceImpl implements RedisCacheService {
+public class RedisCacheService {
 
     @Autowired
     private StringRedisTemplate stringRedisTemplate;
 
-    @Override
+
     public void insertUrl(String shortUrl, String longUrl) {
         stringRedisTemplate.opsForValue().set(shortUrl, longUrl);
     }
 
-    @Override
+
     public String getUrl(String shortUrl) {
         String url = stringRedisTemplate.opsForValue().get(shortUrl);
         return url;
     }
 
-    @Override
+    public String getshortUrl(String longUrl) {
+        String url = stringRedisTemplate.opsForValue().get(longUrl);
+        return url;
+    }
+
     public void deleteUrl(String shortUrl) {
         stringRedisTemplate.delete(shortUrl);
     }
 
-    @Override
+
     public void setTimeOut(String key, long timeout){
         stringRedisTemplate.expire(key, timeout, TimeUnit.SECONDS);
     }
 }
-
-# Redis Config
-spring.cache.type=redis
-spring.redis.host=localhost
-spring.redis.port=6379
-spring.cache.redis.cache-null-values=true
-
-redis.host=localhost
-redis.port=6379
-
-docker run --name my-redis -p 6379:6379 -d redis
-docker exec -it my-redis redis-cli
-docker run --name my-redis2 -p 6380:6379 -d redis
-docker exec -it my-redis2 sh
-redis-cli KEYS *

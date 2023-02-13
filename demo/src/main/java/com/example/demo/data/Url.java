@@ -14,6 +14,10 @@ public class Url {
 
     private String shorturl;
 
+    public String getShorturl() {
+        return shorturl;
+    }
+
     @Override
     public String toString() {
         return "Url{" +
